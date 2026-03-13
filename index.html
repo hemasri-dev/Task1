@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Webpage</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#change">Task1</a></li>
+            <li><a href="#calci">Task2</a></li>
+            <li><a href="#form">Contact</a></li>
+        </nav>
+    </header>
+<br> <br>
+    <section id="home">
+    <h1>🙏🏻 WELCOME TO MY PAGE ❣️!!!</h1>
+    <h2>I am Hemasri Selvarajan 😊</h2>
+    <p id="as">Aspiring Full-Stack DEVELOPER 🖥️</p>
+    <img src="./images/girl_lap.avif" alt="img" width="300px" height="300px">
+    </section>
+    <br> <br>
+    <section id="about">
+         <dl>
+            <dt><h3><b>SHORT INTRO ABOUT ME 👀</b></h3></dt> <br>
+            <dd>Hii, this is Hema. I enjoy creating clean, simple and meaningful web projects.<br> Curious by nature and I believe growth comes from consistent practice and creativity.🤩</dd>
+            <dd>I am an aspiring Full Stack Developer with hands-on experience in building responsive web applications using <span>HTML, CSS, JavaScript, and backend</span> technologies.<br> I am passionate about learning new technologies and developing user-friendly, efficient web applications. <br>I am continously improving my technical skills through projects and internships.🙌🏻</dd>
+        </dl>
+    </section>
+<br> <br>
+<section id="change">
+ <h3><b>CHANGE BY CLICKING 👆🏻 </b></h1>
+    <div id="chan">
+    <p id="text1">When you click the button, the text colour will change !!!</p>
+    <button onclick="changeColor()">Click Me</button>
+    <p id="text2">When you click the button, the text font will change !!!</p>
+    <button onclick="changeFont()">Click Me</button>
+    <p id="text3">When you click the button, the both text color and font will change !!!</p>
+    <button onclick="changeColFont()">Click Me</button>
+    </div>
+</section> <br> <br>
+<section id="calci">
+    <h3><b>CALCULATOR 📲</b></h3>
+    <form action="" id="calculator">
+        <label for="">Enter the 1st Number  :</label>
+        <input type="number" id="num1" placeholder="Number 1"> <br> <br>
+        <label for="">Enter the Operator   :</label>
+        <select id="operate" >
+            <option value="" >Select the operator</option>
+            <option value="+">Add</option>
+            <option value="-">Subtract</option>
+            <option value="*">Multiple</option>
+            <option value="/">Divide</option>
+        </select> <br><br>
+        <label for="">Enter the 2nd Number :</label>
+        <input type="number" id="num2" placeholder="Number 2"> <br> <br>
+        <div id="cal">
+        <button type="button" onclick="calculation()" >Calculate</button> 
+        </div>
+        <p id="result">Result :</p>
+        
+    </form>
+</section> <br> <br>
+    <section id="form">
+            <p>
+               <h3><b> ANY QUERIES 📃</b></h3>
+            </p>
+            <br> 
+            <div id="f">
+            <div id="f1">
+                        <form  id="formlabel">
+                            <label for="">Name :</label>
+                            <input type="text" id="name" placeholder="Enter your name"> <br> <br>
+                            <label for="">Email :</label>
+                            <input type="email" id="email" placeholder="Enter your email id"> <br> <br>
+                            <label for="">Message :</label>
+                            <textarea id="message" cols="30" rows="5" placeholder="Enter your thoughts"></textarea>
+                            <br> <br><div id="but"> 
+                                <input type="submit" value="SEND" onclick="validateForm()" >
+                            </div>
+                        </form>
+            </div> <br>
+            <div id="f2">
+                <img src="./images/girl_papers.avif" alt="img2" width="250px" height="250px">
+            </div>
+            </div>
+    </section> <br> <br>
+  <footer>
+    <h1>THANK YOU 🙏🏻❣️</h1>
+  </footer>
+  <script>
+        let hour = new Date().getHours();
+        let greetings;
+        
+        if (hour < 12)
+    {
+        greetings = "Good Morning! 🙏🏻 welcome to my page";
+    }
+    else if (hour < 18)
+    {
+       greetings = "Good Afternoon! 🙏🏻 welcome to my page"; 
+    }
+    else {
+        greetings = "Good Evening! 🙏🏻 welcome to my page";
+    }
+
+    alert(greetings)
+        function validateForm()
+        {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+            
+        if (name == "")
+        {
+            alert("Name is required");
+            return false;
+        }
+        if (!email.includes("@"))
+        {
+            alert("Enter a valid Email");
+            return false;
+        }
+        if (message == "")
+        {
+            alert("Enter your message");
+            return false;
+        }
+
+        alert("Submitted Successfully!!!");
+        return true;
+        }
+
+        function changeColor(){
+    document.getElementById("text1").style.color = "blue";
+    };
+
+    function changeFont(){
+        document.getElementById("text2").style.fontFamily = "cursive";
+    }
+
+    function changeColFont(){
+    document.getElementById("text3").style.color = "purple";
+    document.getElementById("text3").style.fontFamily = "cursive";
+    };
+
+    function calculation(){
+        let a = Number(document.getElementById("num1").value);
+        let b = Number(document.getElementById("num2").value);
+        let operate = document.getElementById("operate").value;
+        let result;
+        if (a,b,operate == "")
+        {
+            alert("Enter the numbers or operator");
+        }
+        else
+        {
+        switch(operate){
+            case "+":
+                result = a + b;
+                break;
+            case "-":
+                if (a > b)
+                    result = a - b;
+                else
+                    result = b - a;
+                break;
+            case "*":
+                result = a * b;
+                break;
+            case "/": 
+                if (b == 0)
+                    result = "Cannot divide by zero";
+                else 
+                    result = a / b;
+                break;
+            default: 
+                result = "Invalid Operator";
+        }
+
+        document.getElementById("result").innerText = "Result : "+result;
+        }
+    }
+
+    </script>
+</body>
+</html>
